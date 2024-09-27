@@ -1,5 +1,13 @@
+import * as fs from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+
 const create = async () => {
-    // Write your code here 
+    const file = './files/fresh.txt';
+
+    if (existsSync(file)) throw ('FS operation failed');
+
+    await fs.writeFile(file, 'I am fresh and young');
+
 };
 
 await create();
