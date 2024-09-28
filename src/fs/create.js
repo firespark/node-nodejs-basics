@@ -1,4 +1,4 @@
-import * as fs from 'node:fs/promises';
+import {writeFile} from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
 const create = async () => {
@@ -6,7 +6,7 @@ const create = async () => {
 
     if (existsSync(file)) throw ('FS operation failed');
 
-    await fs.writeFile(file, 'I am fresh and young');
+    await writeFile(file, 'I am fresh and young');
 
 };
 

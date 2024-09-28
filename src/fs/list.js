@@ -1,4 +1,4 @@
-import * as fs from 'node:fs/promises';
+import { readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
 const list = async () => {
@@ -6,7 +6,7 @@ const list = async () => {
 
     if (!existsSync(folder)) throw ('FS operation failed');
     
-    const files = await fs.readdir(folder)
+    const files = await readdir(folder)
     files.forEach(file => {
         console.log(file);
     });

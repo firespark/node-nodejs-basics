@@ -1,4 +1,4 @@
-import * as fs from 'node:fs/promises';
+import { rename as renameFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
 const rename = async () => {
@@ -8,7 +8,7 @@ const rename = async () => {
     if (!existsSync(wrongFile)) throw ('FS operation failed');
     if (existsSync(properFile)) throw ('FS operation failed');
 
-    await fs.rename(wrongFile, properFile);
+    await renameFile(wrongFile, properFile);
 };
 
 await rename();
