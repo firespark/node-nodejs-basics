@@ -11,12 +11,12 @@ const spawnChildProcess = async (args) => {
 
     const childProcess = spawn('node', allArgs);
 
-    process.stdin.on('data', (value) => {
-       childProcess.stdin.write(value);
+    process.stdin.on('data', (input) => {
+       childProcess.stdin.write(input);
     });
 
-    childProcess.stdout.on('data', (value) => {
-        console.log(value.toString());
+    childProcess.stdout.on('data', (output) => {
+        console.log(output.toString());
     });
 };
 
