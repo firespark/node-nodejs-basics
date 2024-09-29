@@ -1,5 +1,14 @@
+import { createWriteStream } from 'node:fs';
+
 const write = async () => {
-    // Write your code here 
+    const folderPath = import.meta.dirname;
+    const filePath = `${folderPath}/files/fileToWrite.txt`;
+
+    const stream = await createWriteStream(filePath);
+
+    process.stdin.on('data', (chunk) => {
+        stream.write(chunk);
+    });
 };
 
 await write();

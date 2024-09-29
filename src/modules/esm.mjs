@@ -3,6 +3,9 @@ import { release, version } from 'os';
 import { createServer as createServerHttp } from 'http';
 import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const cModule = await import('./files/c.js');
 
 const random = Math.random();
@@ -11,8 +14,7 @@ const filename = random > 0.5 ? 'a' : 'b';
 const jsonImport = await import(`./files/${filename}.json`, {assert: {type: 'json'}});
 const unknownObject = jsonImport.default;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
 
 console.log(`Release ${release()}`);
 console.log(`Version ${version()}`);

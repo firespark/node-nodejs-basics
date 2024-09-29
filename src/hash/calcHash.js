@@ -1,9 +1,10 @@
 import { createReadStream } from 'node:fs';
 import { createHash } from 'node:crypto';
 
-const filePath = './files/fileToCalculateHashFor.txt';
-
 const calculateHash = async () => {
+    const folderPath = import.meta.dirname;
+    const filePath = `${folderPath}/files/fileToCalculateHashFor.txt`;
+
     const hash = createHash('sha256');
     const stream = await createReadStream(filePath);
 
