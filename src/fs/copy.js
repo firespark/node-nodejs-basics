@@ -2,8 +2,9 @@ import {mkdir, readdir, copyFile} from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
 const copy = async () => {
-    const folder = './files';
-    const folderCopy = './files_copy';
+    const folderPath = import.meta.dirname;
+    const folder = `${folderPath}/files`;
+    const folderCopy = `${folderPath}/files_copy`;
 
     if (!existsSync(folder)) throw ('FS operation failed');
     if (existsSync(folderCopy)) throw ('FS operation failed');

@@ -2,7 +2,8 @@ import { readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
 const list = async () => {
-    const folder = './files';
+    const folderPath = import.meta.dirname;
+    const folder = `${folderPath}/files`;
 
     if (!existsSync(folder)) throw ('FS operation failed');
     
